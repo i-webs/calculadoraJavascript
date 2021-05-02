@@ -21,19 +21,28 @@
 
 	<script type="text/javascript">
 		var cifra="";
+		var resultado=0;
+		var resulSuma = false;
+
 		function displayNumeros(numero){
 			document.getElementById("display").value=cifra+numero;
-			
 			cifra = document.getElementById("display").value;
 
 		}
 
-		var resultado=0;
+		
 		function suma(){
-			resultado=parseInt(resultado)+parseInt(cifra);
+			resultado=resultado+parseInt(cifra);
 			document.getElementById("display").value=resultado;
-			cifra="";
-			
+			cifra="";	
+			resulSuma = true;
+		}
+
+		function igual(){
+			if(resulSuma){
+				document.getElementById("display").value=resultado+parseInt(cifra);	
+			}
+			//;
 			
 		}
 
@@ -45,10 +54,10 @@
 			<td colspan="4"><input type="display" name="display" class="display" id="display"></td>
 		</tr>
 		<tr>
-			<td><input type="button" name="button" id="button1" value="+" onclick="suma();">		
+			<td><input type="button" name="button" id="button1" value="+" onclick="suma()">		
 			</td>
 			<td>
-				<input type="button" name="button" id="button2" value="-" onclick="suma();>	
+				<input type="button" name="button" id="button2" value="-"  >	
 			</td>
 			<td>
 				<input type="button" name="button" id="button3" value="*">	
@@ -111,7 +120,7 @@
 				<input type="button" name="punto" id="punto" value=".">	
 			</td>
 			<td colspan="2">
-				<input type="button" name="igual" id="igual" value="=">	
+				<input type="button" name="igual" id="igual" value="=" onclick="igual()">	
 			</td>
 			
 
